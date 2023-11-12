@@ -11,19 +11,9 @@
     "http"
   ],
   "paths": {
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/recipe/": {
       "get": {
-        "description": "",
+        "description": "Get all recipes with ingredients and instructions.",
         "responses": {
           "200": {
             "description": "OK"
@@ -34,7 +24,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new recipe.",
         "parameters": [
           {
             "name": "body",
@@ -68,51 +58,28 @@
         }
       }
     },
-    "/recipe/ingredients/{recipe_name}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "recipe_name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/recipe/instructions/{recipe_name}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "recipe_name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
     "/recipe/ingredients/{recipe_id}": {
+      "get": {
+        "description": "Get all ingredients by recipe id.",
+        "parameters": [
+          {
+            "name": "recipe_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
       "post": {
-        "description": "",
+        "description": "Add a new ingredient by recipe id.",
         "parameters": [
           {
             "name": "recipe_id",
@@ -149,7 +116,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update an ingredient by recipe id and ingredient id.",
         "parameters": [
           {
             "name": "recipe_id",
@@ -189,7 +156,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete an ingredient by recipe id and ingredient id",
         "parameters": [
           {
             "name": "recipe_id",
@@ -221,8 +188,27 @@
       }
     },
     "/recipe/instructions/{recipe_id}": {
+      "get": {
+        "description": "Get all instructions by recipe id.",
+        "parameters": [
+          {
+            "name": "recipe_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
       "post": {
-        "description": "",
+        "description": "Add new instruction based on recipe id.",
         "parameters": [
           {
             "name": "recipe_id",
@@ -253,7 +239,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update an instruction by recipe id and direction id.",
         "parameters": [
           {
             "name": "recipe_id",
@@ -287,7 +273,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete and instruction by recipe id and direction id.",
         "parameters": [
           {
             "name": "recipe_id",
@@ -320,7 +306,7 @@
     },
     "/recipe/{recipe_id}": {
       "put": {
-        "description": "",
+        "description": "Update recipe details by recipe id.",
         "parameters": [
           {
             "name": "recipe_id",
@@ -360,7 +346,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete a recipe by recipe id.",
         "parameters": [
           {
             "name": "recipe_id",

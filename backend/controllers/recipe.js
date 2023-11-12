@@ -12,10 +12,10 @@ async function getRecipeData(req, res) {
 }
 
 // Get ingredient by recipe id
-async function getIngredientByRecipeName(req, res) {
-    const { recipe_name } = req.params;
+async function getIngredientByRecipeId(req, res) {
+    const { recipe_id } = req.params;
     try {
-        const { rows } = await pool.query('SELECT i.ing_id, i.recipe_id, i.ing_name, i.ing_amount, i.ing_is_optional FROM public.ingredient AS i RIGHT JOIN public.recipe AS r ON r.recipe_id = i.recipe_id WHERE r.recipe_name LIKE $1', [`%${recipe_name}%`]);
+        const { rows } = await pool.query('SELECT i.ing_id, i.recipe_id, i.ing_name, i.ing_amount, i.ing_is_optional FROM public.ingredient AS i RIGHT JOIN public.recipe AS r ON r.recipe_id = i.recipe_id WHERE r.recipe_id = $1', [recipe_id]);
         res.json(rows);
     } catch (error) {
         console.error('Error executing query', error);
@@ -24,10 +24,10 @@ async function getIngredientByRecipeName(req, res) {
 }
 
 // Get instruction by recipe id
-async function getInstructionByRecipeName(req, res) {
-    const { recipe_name } = req.params;
+async function getInstructionByRecipeId(req, res) {
+    const { recipe_id } = req.params;
     try {
-        const { rows } = await pool.query('SELECT d.dir_id, d.recipe_id, d.dir_ins FROM public.direction AS d RIGHT JOIN public.recipe AS r ON r.recipe_id = d.recipe_id WHERE r.recipe_name LIKE $1', [`%${recipe_name}%`]);
+        const { rows } = await pool.query('SELECT d.dir_id, d.recipe_id, d.dir_ins FROM public.direction AS d RIGHT JOIN public.recipe AS r ON r.recipe_id = d.recipe_id WHERE r.recipe_id = $1', [recipe_id]);
         res.json(rows);
     } catch (error) {
         console.error('Error executing query', error);
@@ -116,7 +116,7 @@ async function updateInstructionByIdAndRecipeId(req, res) {
 async function deleteRecipeById(req, res) {
     const { recipe_id } = req.params;
     try {
-        await pool.query('DELETE FROM public.recipe WHERE id = $1', [recipe_id]);
+        await pool.query('DELETE FROM public.recipe WHERE recipe_id = $1', [recipe_id]);
         res.json({ message: 'Recipe deleted successfully' });
     } catch (error) {
         console.error('Error executing query', error);
@@ -152,8 +152,8 @@ async function deleteInstructionByIdAndRecipeId(req, res) {
 
 module.exports = {
     getRecipeData,
-    getIngredientByRecipeName,
-    getInstructionByRecipeName,
+    getIngredientByRecipeId,
+    getInstructionByRecipeId,
     createRecipe,
     createIngredientByRecipeId,
     createInstructionByRecipeId,

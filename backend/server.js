@@ -14,5 +14,5 @@ app.use('/', require('./routes/index'))
 app.use('/recipe', require('./routes/recipes'));
 
 app.listen(port, () => {
-    console.log(`Server running on http://${host}:${port}`)
+    console.log(`Server running on http://${host}:${port}/api-docs`)
 })

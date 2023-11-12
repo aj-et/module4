@@ -7,7 +7,7 @@ On the back-end/server-side of this project, there is a swagger documentation th
 
 The purpose of creating this project is to learn more about PostgreSQL and using the data into the client-side of the application.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/RjT0QvinxGY)
 
 # Relational Database
 

@@ -5,9 +5,9 @@ const recipeController =require('../controllers/recipe')
 
 router.get('/', recipeController.getRecipeData);
 
-router.get('/ingredients/:recipe_name', recipeController.getIngredientByRecipeName);
+router.get('/ingredients/:recipe_id', recipeController.getIngredientByRecipeId);
 
-router.get('/instructions/:recipe_name', recipeController.getInstructionByRecipeName);
+router.get('/instructions/:recipe_id', recipeController.getInstructionByRecipeId);
 
 router.post('/', recipeController.createRecipe);
 
