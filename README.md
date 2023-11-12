@@ -5,8 +5,6 @@ I created the table and sample recipes in the [module4.sql](./module4.sql).
 
 On the back-end/server-side of this project, there is a swagger documentation that will allow you to test the database endpoints and make changes in the database.
 
-On the front-end/client-side of this project, the user can view, modify, and delete the food recipe.
-
 The purpose of creating this project is to learn more about PostgreSQL and using the data into the client-side of the application.
 
 [Software Demo Video](http://youtube.link.goes.here)
@@ -35,5 +33,6 @@ Render
 # Future Work
 
 - Add a user table that the created recipe will be tied to.
+- Add a frontend for the recipe app.
 - Add an OAuth for the frontend.
 - Make a mobile version of the application.

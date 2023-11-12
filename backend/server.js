@@ -1,9 +1,6 @@
 // Require statments
 const express = require('express');
-const pool = require('./db')
-const cors = require('cors');
 require("dotenv").config();
-const { getRecipeData, getIngredientByRecipeId, getInstructionByRecipeId } = require('./controllers/recipe')
 
 const app = express();
 
